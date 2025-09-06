@@ -1,40 +1,76 @@
-body {
-  font-family: Arial, sans-serif;
-  background: #f4f6f9;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  min-height: 100vh;
+/* General Reset */
+* {
   margin: 0;
-  padding: 20px;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #ecf0f1;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+}
+
+/* Container */
 .container {
-  background: #fff;
-  padding: 20px 30px;
-  border-radius: 12px;
-  box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
-  width: 600px;
+position: relative;
+  z-index: 1; /* background ke upar */
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(12px);
+  padding: 25px 35px;
+  border-radius: 16px;
+  box-shadow: 0px 8px 30px rgba(0,0,0,0.4);
+  width: 90%;
+  max-width: 600px;
+  margin: auto;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
+/* Heading */
 h1 {
   text-align: center;
-  margin-bottom: 20px;
-  color: #2c3e50;
+  margin-bottom: 40px;
+  color: #1abc9c;
+  text-shadow: 0px 3px 8px rgba(0,0,0,0.5);
 }
 
+h2 {
+  margin: 20px 0 10px;
+  font-size: 20px;
+  color: #f1c40f;
+}
+
+/* Form Box */
 .form-box {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
   margin-bottom: 20px;
 }
 
 input {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 14px;
+  padding: 12px;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+input::placeholder {
+  color: #bbb;
+}
+
+input:focus {
+  border-color: #1abc9c;
+  outline: none;
+  background: rgba(255, 255, 255, 0.15);
 }
 
 .password-box {
@@ -43,57 +79,105 @@ input {
 
 .password-box input {
   flex: 1;
-  border-radius: 6px 0 0 6px;
+  border-radius: 8px 0 0 8px;
 }
 
 .password-box button {
-  border: 1px solid #ccc;
-  background: #eee;
-  padding: 0 10px;
-  border-radius: 0 6px 6px 0;
+  border: none;
+  background: #16a085;
+  color: white;
+  padding: 0 14px;
+  border-radius: 0 8px 8px 0;
   cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s;
 }
 
+.password-box button:hover {
+  background: #1abc9c;
+}
+
+/* Buttons */
 button {
-  background: #3498db;
+  background: linear-gradient(45deg, #3498db, #2980b9);
   color: #fff;
   border: none;
-  padding: 10px;
-  border-radius: 6px;
+  padding: 12px;
+  border-radius: 8px;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 15px;
+  font-weight: bold;
+  transition: transform 0.2s, background 0.3s;
 }
 
 button:hover {
-  background: #2980b9;
+  transform: translateY(-2px);
+  background: linear-gradient(45deg, #1abc9c, #16a085);
+}
+
+button.danger {
+  background: linear-gradient(45deg, #e74c3c, #c0392b);
+}
+
+button.danger:hover {
+  background: linear-gradient(45deg, #ff4d4d, #a93226);
+}
+
+/* Table */
+.table-wrapper {
+  max-height: 250px;
+  overflow-y: auto;
+  border-radius: 8px;
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
-  margin-bottom: 15px;
 }
 
 th, td {
-  border: 1px solid #ddd;
-  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 12px;
   text-align: center;
+  font-size: 14px;
 }
 
 th {
-  background: #3498db;
+  background: linear-gradient(45deg, #8e44ad, #3498db);
   color: white;
+  position: sticky;
+  top: 0;
+  letter-spacing: 1px;
+}
+
+td {
+  background: rgba(255, 255, 255, 0.05);
+  color: #ecf0f1;
 }
 
 td button {
-  margin: 0 5px;
-  background: #e74c3c;
+  margin: 0 3px;
+  background: #e67e22;
 }
 
-#clearAll {
-  background: #e74c3c;
+td button:hover {
+  background: #d35400;
 }
 
-#clearAll:hover {
-  background: #c0392b;
+/* Animation */
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(-20px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .container {
+    width: 95%;
+    padding: 15px;
+  }
+
+  table, th, td {
+    font-size: 12px;
+  }
 }
