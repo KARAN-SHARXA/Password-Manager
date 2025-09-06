@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Password Manager</title>
+  <link rel="stylesheet" href="css.css">
+</head>
+<body>
+  <div class="container">
+    <h1>🔑 Password Manager</h1>
+
+    <!-- Form Section -->
+    <div class="form-box">
+      <input type="text" id="website" placeholder="Website (e.g. gmail.com)">
+      <input type="text" id="username" placeholder="Username">
+      
+      <div class="password-box">
+        <input type="password" id="password" placeholder="Password">
+        <button id="togglePassword">👁️</button>
+      </div>
+
+      <button id="addBtn">➕ Add Password</button>
+    </div>
+
+    <!-- Saved Passwords Table -->
+    <h2>Saved Passwords</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Website</th>
+          <th>Username</th>
+          <th>Password</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="passwordList">
+        <!-- Data yaha JS se aayegi -->
+      </tbody>
+    </table>
+
+    <!-- Delete All Button -->
+    <button id="clearAll">🗑️ Delete All</button>
+  </div>
+</body>
+</html>
